@@ -1,29 +1,29 @@
 influx-data:
   image: busybox
-  volumes:
-    - $INFLUX_DB_DATAFOLDER:/data
+  #volumes:
+  #  - $INFLUX_DB_DATAFOLDER:/data
 
 influxdb:
   restart: always
   environment:
-    - PRE_CREATE_DB=$INFLUX_DB_PRE_CREATE_DB
+    - PRE_CREATE_DB
   volumes_from:
     - influx-data
   ports:
-    - "$INFLUX_DB_PORT_8083:8083"
-    - "$INFLUX_DB_PORT_8086:8086"
+    - "8015:8083"
+    - "8003:8086"
 
 grafana-data:
   image: busybox
   volumes:
-    - $GRAFANA_DATA_FOLDER:/var/lib/grafana
+    - /app/metrics/grafana/lib:/var/lib/grafana
 
 grafana:
   restart: always
   ports:
-    - "GRAFANA_PORT_3000:3000"
+    - "8012:3000"
   environment:
-    - GF_SECURITY_ADMIN_USER=$GRAFANA_ADMIN_USER
-    - GF_SECURITY_ADMIN_PASSWORD=$GRAFANA_ADMIN_PASSWORD
+    - GF_SECURITY_ADMIN_USER
+    - GF_SECURITY_ADMIN_PASSWORD
 volumes_from:
-  - grafana-data    
+  - grafana-data
