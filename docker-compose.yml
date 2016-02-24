@@ -1,0 +1,6 @@
+influxdb:
+  container_name: metrics_influxdb
+  image: tutum/influxdb:0.10
+
+grafana:
+  image: grafana/grafana:2.6.0
