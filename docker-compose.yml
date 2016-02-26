@@ -1,15 +1,30 @@
+influx-data:
+  image: tutum/influxdb:0.10
+
 influxdb:
   container_name: metrics_influxdb
   image: tutum/influxdb:0.10
+  volumes_from:
+    - influx-data
+
+grafana-data:
+  image: grafana/grafana:2.6.0
 
 grafana:
   image: grafana/grafana:2.6.0
   links:
     - influxdb
     - graphite
+  volumes_from:
+    - grafana-data
+
+graphite-data:
+  image: hopsoft/graphite-statsd:latest
 
 graphite:
-  image: sitespeedio/graphite:0.9.14
+  image: hopsoft/graphite-statsd:latest
+  volumes_from:
+    - graphite-data
 
 cadvisor:
   image: google/cadvisor:v0.20.5

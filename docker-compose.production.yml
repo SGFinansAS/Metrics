@@ -1,20 +1,12 @@
-influx-data:
-  image: busybox
-  #volumes:
-  #  - $INFLUX_DB_DATAFOLDER:/data
-
 influxdb:
   restart: always
   environment:
     - PRE_CREATE_DB
-  volumes_from:
-    - influx-data
   ports:
     - "8015:8083"
     - "8003:8086"
 
 grafana-data:
-  image: busybox
   volumes:
     - /app/metrics/grafana/lib:/var/lib/grafana
 
@@ -25,8 +17,6 @@ grafana:
   environment:
     - GF_SECURITY_ADMIN_USER
     - GF_SECURITY_ADMIN_PASSWORD
-  volumes_from:
-    - grafana-data
 
 graphite:
   ports:
@@ -34,6 +24,3 @@ graphite:
     - "8001:2003"
     - "8002:2004"
   restart: always
-  volumes:
-    - /app/metrics/graphite:/opt/graphite/storage/whisper
-    - /var/log/graphite:/var/log/graphite
