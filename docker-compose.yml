@@ -4,3 +4,9 @@ influxdb:
 
 grafana:
   image: grafana/grafana:2.6.0
+  links:
+    - influxdb
+    - graphite
+
+graphite:
+  image: sitespeedio/graphite:0.9.14

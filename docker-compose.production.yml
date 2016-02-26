@@ -27,3 +27,13 @@ grafana:
     - GF_SECURITY_ADMIN_PASSWORD
 volumes_from:
   - grafana-data
+
+graphite:
+  ports:
+    - "8013:8000"
+    - "8001:2003"
+    - "8002:2004"
+  restart: always
+  volumes:
+    - /app/metrics/graphite:/opt/graphite/storage/whisper
+    - /var/log/graphite:/var/log/graphite

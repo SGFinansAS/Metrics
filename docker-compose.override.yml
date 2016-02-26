@@ -2,6 +2,10 @@ influxdb:
   ports:
     - "8083:8083"
     - "8086:8086"
+  environment:
+    - PRE_CREATE_DB="cadvisor;metrics"
+    - ADMIN_USER="root"
+    - INFLUXDB_INIT_PWD="root"
 
 grafana:
   ports:
@@ -9,3 +13,8 @@ grafana:
   environment:
     - GF_SECURITY_ADMIN_USER=admin
     - GF_SECURITY_ADMIN_PASSWORD=admin
+
+graphite:
+  ports:
+    - "8000:80"
+    - "2003:2003"
