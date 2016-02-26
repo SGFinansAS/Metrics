@@ -30,7 +30,7 @@ grafana:
 
 graphite:
   ports:
-    - "8013:8000"
+    - "8013:80"
     - "8001:2003"
     - "8002:2004"
   restart: always
