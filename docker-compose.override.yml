@@ -18,3 +18,7 @@ graphite:
   ports:
     - "8000:80"
     - "2003:2003"
+
+influxdb:
+  environment:
+    - PRE_CREATE_DB
