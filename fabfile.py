@@ -10,4 +10,4 @@ def up():
     if not os.environ.get('GF_SECURITY_ADMIN_PASSWORD'):
         raise "GF_SECURITY_ADMIN_PASSWORD must be set"
 
-    local('docker-compose -f docker-compose.yml -f docker-compose.production.yml up -d')
+    local('docker-compose -f docker-compose.yml -f docker-compose.production.yml -p metrics up -d')
