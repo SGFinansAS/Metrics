@@ -1,5 +1,6 @@
 influx-data:
   image: tutum/influxdb:0.10
+  entrypoint: /bin/true
 
 influxdb:
   container_name: metrics_influxdb
@@ -9,6 +10,7 @@ influxdb:
 
 grafana-data:
   image: grafana/grafana:2.6.0
+  entrypoint: /bin/true
 
 grafana:
   image: grafana/grafana:2.6.0
@@ -20,6 +22,7 @@ grafana:
 
 graphite-data:
   image: hopsoft/graphite-statsd:latest
+  entrypoint: /bin/true
 
 graphite:
   image: hopsoft/graphite-statsd:latest
