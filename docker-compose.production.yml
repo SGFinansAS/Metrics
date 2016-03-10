@@ -1,9 +1,7 @@
-grafana-data:
-  volumes:
-    - /app/metrics/grafana/lib:/var/lib/grafana
-
 grafana:
   restart: always
+  volumes:
+    - /app/metrics/grafana/lib:/var/lib/grafana
   ports:
     - "8012:3000"
   environment:
@@ -16,7 +14,5 @@ graphite:
     - "8001:2003"
     - "8002:2004"
   restart: always
-
-graphite-data:
   volumes:
     - /app/metrics/graphite/:/opt/graphite/storage

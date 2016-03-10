@@ -1,17 +1,9 @@
-grafana-data:
-  image: grafana/grafana:2.6.0
-  entrypoint: /bin/true
-
 grafana:
   image: grafana/grafana:2.6.0
   links:
     - graphite
   volumes_from:
     - grafana-data
-
-graphite-data:
-  image: hopsoft/graphite-statsd:latest
-  entrypoint: /bin/true
 
 graphite:
   image: hopsoft/graphite-statsd:latest
