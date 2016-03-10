@@ -24,3 +24,7 @@ graphite:
     - "8001:2003"
     - "8002:2004"
   restart: always
+
+graphite-data:
+  volumes:
+    -/app/metrics/graphite/:/opt/graphite/storage
