@@ -2,10 +2,6 @@ grafana:
   image: grafana/grafana:2.6.0
   links:
     - graphite
-  volumes_from:
-    - grafana-data
 
 graphite:
   image: hopsoft/graphite-statsd:latest
-  volumes_from:
-    - graphite-data
