@@ -1,11 +1,3 @@
-influxdb:
-  restart: always
-  environment:
-    - PRE_CREATE_DB
-  ports:
-    - "8015:8083"
-    - "8003:8086"
-
 grafana-data:
   volumes:
     - /app/metrics/grafana/lib:/var/lib/grafana

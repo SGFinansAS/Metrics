@@ -1,12 +1,3 @@
-influxdb:
-  ports:
-    - "8083:8083"
-    - "8086:8086"
-  environment:
-    - PRE_CREATE_DB="cadvisor;metrics"
-    - ADMIN_USER="root"
-    - INFLUXDB_INIT_PWD="root"
-
 grafana:
   ports:
     - "3000:3000"
@@ -18,7 +9,3 @@ graphite:
   ports:
     - "8000:80"
     - "2003-2004:2003-2004"
-
-influxdb:
-  environment:
-    - PRE_CREATE_DB
