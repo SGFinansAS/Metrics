@@ -27,4 +27,4 @@ graphite:
 
 graphite-data:
   volumes:
-    -/app/metrics/graphite/:/opt/graphite/storage
+    - /app/metrics/graphite/:/opt/graphite/storage
