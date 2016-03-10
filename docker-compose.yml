@@ -5,7 +5,6 @@ grafana-data:
 grafana:
   image: grafana/grafana:2.6.0
   links:
-    - influxdb
     - graphite
   volumes_from:
     - grafana-data
