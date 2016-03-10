@@ -2,6 +2,9 @@ from __future__ import with_statement
 from fabric.api import *
 import os
 
+def stop():
+    local('docker-compose -f docker-compose.yml -f docker-compose.production.yml -p metrics stop')
+
 def up():
     if not os.environ.get('PRE_CREATE_DB'):
         raise "PRE_CREATE_DB must be set"
