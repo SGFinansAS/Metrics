@@ -15,4 +15,4 @@ graphite:
     - "8002:2004"
   restart: always
   volumes:
-    - /app/metrics/graphite/:/opt/graphite/storage
+    - /backup/graphite/:/opt/graphite/storage
