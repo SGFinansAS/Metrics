@@ -1,7 +1,7 @@
 grafana:
-  image: grafana/grafana:5.2.4
+  image: grafana/grafana:6.0.1
   links:
     - graphite
 
 graphite:
-  image: graphiteapp/graphite-statsd:1.1.4-3
+  image: graphiteapp/graphite-statsd:1.1.5-10
