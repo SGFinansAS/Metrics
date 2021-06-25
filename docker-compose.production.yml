@@ -17,3 +17,9 @@ services:
     restart: always
     volumes:
       - /backup/graphite/:/opt/graphite/storage
+  
+  loki:
+    ports:
+      - "3100:3100"
+    restart: always
+    
