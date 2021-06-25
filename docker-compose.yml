@@ -1,7 +1,8 @@
-grafana:
-  image: grafana/grafana:6.7.4
-  links:
-    - graphite
+services:
+  grafana:
+    image: grafana/grafana:6.7.4
+    depends_on:
+      - graphite
 
-graphite:
-  image: graphiteapp/graphite-statsd:1.1.7-6
+  graphite:
+    image: graphiteapp/graphite-statsd:1.1.7-6
