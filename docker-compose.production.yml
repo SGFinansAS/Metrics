@@ -24,4 +24,6 @@ services:
     ports:
       - "3100:3100"
     restart: always
+    volumes:
+      - /backup/loki/:/loki
     
