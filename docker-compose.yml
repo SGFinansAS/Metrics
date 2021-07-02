@@ -1,7 +1,10 @@
-grafana:
-  image: grafana/grafana:7.1.0
-  links:
-    - graphite
+version: "3.1"
 
-graphite:
-  image: graphiteapp/graphite-statsd:1.1.7-6
+services:
+  grafana:
+    image: grafana/grafana:7.1.0
+    depends_on:
+      - graphite
+
+  graphite:
+    image: graphiteapp/graphite-statsd:1.1.7-6

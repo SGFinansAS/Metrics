@@ -1,18 +1,21 @@
-grafana:
-  restart: always
-  volumes:
-    - /app/metrics/grafana/lib:/var/lib/grafana
-  ports:
-    - "8012:3000"
-  environment:
-    - GF_SECURITY_ADMIN_USER
-    - GF_SECURITY_ADMIN_PASSWORD
+version: "3.1"
 
-graphite:
-  ports:
-    - "8013:80"
-    - "8001:2003"
-    - "8002:2004"
-  restart: always
-  volumes:
-    - /backup/graphite/:/opt/graphite/storage
+services:
+  grafana:
+    restart: always
+    volumes:
+      - /app/metrics/grafana/lib:/var/lib/grafana
+    ports:
+      - "8012:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER
+      - GF_SECURITY_ADMIN_PASSWORD
+
+  graphite:
+    ports:
+      - "8013:80"
+      - "8001:2003"
+      - "8002:2004"
+    restart: always
+    volumes:
+      - /backup/graphite/:/opt/graphite/storage
